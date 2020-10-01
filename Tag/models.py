@@ -18,15 +18,3 @@ class ComplainTag(models.Model):
 
     def __str__(self):
         return str(self.complain)+':'+ str(self.tag.tag_name)
-
-class ajairamodel(models.Model):
-    emni = models.CharField(max_length= 200)
-
-    def __str__(self):
-        return emni
-
-class ajairamodel2(models.Model):
-    emni = models.CharField(max_length= 200)
-
-    def __str__(self):
-        return emni
