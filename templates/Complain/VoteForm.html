@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ msg }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ vote_form.as_p }}
+        <input type="submit">
+    </form>
+{% endblock content %}
