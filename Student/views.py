@@ -32,7 +32,7 @@
 #         'infoTable': infoTable,
 #     }
 #
-#     return render(request, 'showTables.html', context)
+#     return render(request, 'allComplain.html', context)
 
 
 # def studentForm(request):

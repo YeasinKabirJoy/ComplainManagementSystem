@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .ComplainForm import ComplainForm
 from .CommentForm import CommentForm
 from .VoteForm import VoteForm
+from .models import Complain
+
 from Verified_User.models import Verified_User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -102,3 +104,42 @@ def voteForm(request):
         'msg': msg
     }
     return render(request, 'Complain/VoteForm.html', context)
+
+
+
+
+def allComplain(request):
+
+    complain = Complain.objects.all()
+
+
+
+    context = {
+        'complain':complain
+    }
+
+    return render(request, 'Complain/allComplain.html', context)
+
+def complain_details(request,complain_id):
+
+    complain=get_object_or_404(Complain,id=complain_id)
+
+
+    context={
+        'complain':complain,
+    }
+
+    return render(request,'Complain/complainDetails.html',context)
+
+
+
+def homepage(request):
+
+    return render(request,'Complain/home.html')
+
+
+
+
+
+
+

@@ -1,41 +1,41 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Verified_User
-from Complain.models import Complain, Comment, Vote
-from Tag.models import Tag, ComplainTag
-from InfoNContact.models import FAQ, Info
+# from Complain.models import Complain, Comment, Vote
+# from Tag.models import Tag, ComplainTag
+# from InfoNContact.models import FAQ, Info
 from .User_Verification_Form import User_Verification_Form
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
-def showTables(request):
-
-    # studentTable = Student.objects.all()
-    verified_userTable = Verified_User.objects.all()
-    complainTable = Complain.objects.all()
-    commentTable = Comment.objects.all()
-    voteTable = Vote.objects.all()
-    tagTable = Tag.objects.all()
-    complainTag = ComplainTag.objects.all()
-    faqTable = FAQ.objects.all()
-    infoTable = Info.objects.all()
-
-
-
-    context = {
-        # 'studentTable': studentTable,
-        'verified_userTable': verified_userTable,
-        'complainTable': complainTable,
-        'commentTable': commentTable,
-        'votTable': voteTable,
-        'tagTable': tagTable,
-        'complainTag': complainTag,
-        'faqTable': faqTable,
-        'infoTable': infoTable,
-    }
-
-    return render(request, 'showTables.html', context)
+# def showTables(request):
+#
+#     # studentTable = Student.objects.all()
+#     verified_userTable = Verified_User.objects.all()
+#     complainTable = Complain.objects.all()
+#     commentTable = Comment.objects.all()
+#     voteTable = Vote.objects.all()
+#     tagTable = Tag.objects.all()
+#     complainTag = ComplainTag.objects.all()
+#     faqTable = FAQ.objects.all()
+#     infoTable = Info.objects.all()
+#
+#
+#
+#     context = {
+#         # 'studentTable': studentTable,
+#         'verified_userTable': verified_userTable,
+#         'complainTable': complainTable,
+#         'commentTable': commentTable,
+#         'votTable': voteTable,
+#         'tagTable': tagTable,
+#         'complainTag': complainTag,
+#         'faqTable': faqTable,
+#         'infoTable': infoTable,
+#     }
+#
+#     return render(request, 'allComplain.html', context)
 
 @login_required
 def user_verification_form(request):
@@ -82,8 +82,6 @@ def show_profile(request):
     }
 
     return render(request, 'Verified_User/profile.html', context)
-
-
 
 
 

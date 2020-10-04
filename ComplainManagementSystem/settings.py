@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Verified_User.context.verifiedUser'
             ],
         },
     },
@@ -130,5 +131,5 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = 'showTable'
+LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL ='login'

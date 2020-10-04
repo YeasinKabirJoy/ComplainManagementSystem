@@ -26,7 +26,9 @@ from Verified_User import views as verified_user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', verified_user_views.showTables, name='showTable'),
+    path('', complain_view.homepage, name='homepage'),
+    path('allComplain/', complain_view.allComplain, name='allComplain'),
+    path('allComplain/<int:complain_id>', complain_view.complain_details, name='complainDetails'),
     path('user_verification_form/', verified_user_views.user_verification_form, name='user_verification_form'),
     path('my_profile/',verified_user_views.show_profile, name='my_profile'),
     path('complainForm/', complain_view.complainForm, name='complainForm'),
