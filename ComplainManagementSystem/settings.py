@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'Tag.apps.TagConfig',
     'InfoNContact.apps.InfoncontactConfig',
     'UserManagement.apps.UsermanagementConfig',
-    'Verified_User.apps.VerifiedUserConfig'
+    'Verified_User.apps.VerifiedUserConfig',
+    'crispy_forms',
 
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .infoForm import InfoForm
 from .faqForm import FaqForm
+from .models import FAQ,Info
 from Verified_User.models import Verified_User
 from django.contrib.auth.decorators import login_required
 
@@ -70,4 +71,18 @@ def faqForm(request):
     return render(request, 'InfoNContact/faqForm.html', context)
 
 
+def showFAQ(request):
+    faq=FAQ.objects.all()
+    context={
+        'faq':faq
+    }
 
+    return render(request,'InfoNContact/FAQ.html',context)
+
+def showInfo(request):
+    info=Info.objects.all()
+    context={
+        'info':info
+    }
+
+    return render(request,'InfoNContact/info.html',context)

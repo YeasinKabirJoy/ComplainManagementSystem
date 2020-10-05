@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
@@ -12,7 +12,7 @@ def registration(request):
         if form.is_valid():
             form.save()
             msg="Registration Successful!"
-            form = UserCreationForm()
+            return redirect('login')
     context = {
         "message":msg,
         'form': form,

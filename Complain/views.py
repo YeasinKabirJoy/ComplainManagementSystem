@@ -123,12 +123,11 @@ def allComplain(request):
 def complain_details(request,complain_id):
 
     complain=get_object_or_404(Complain,id=complain_id)
-
-
     context={
         'complain':complain,
-    }
 
+    }
+    complain.save()
     return render(request,'Complain/complainDetails.html',context)
 
 

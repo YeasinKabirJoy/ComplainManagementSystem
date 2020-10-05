@@ -1,7 +1,10 @@
-from django import forms
+from django.forms import ModelForm,CheckboxSelectMultiple
 from .models import Complain
 
-class ComplainForm(forms.ModelForm):
+class ComplainForm(ModelForm):
     class Meta:
         model = Complain
-        fields = ('image', 'description', 'type')
+        fields = ('image', 'description', 'type','tag')
+        widgets={
+            'tag':CheckboxSelectMultiple()
+        }

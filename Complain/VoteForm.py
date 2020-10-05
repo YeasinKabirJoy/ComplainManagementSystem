@@ -4,4 +4,4 @@ from .models import Vote
 class VoteForm(forms.ModelForm):
     class Meta:
         model= Vote
-        fields=('complain','vote')
+        fields='__all__'
