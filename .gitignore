@@ -1,9 +1,8 @@
+
 /migrations
 /.idea
 /venv
 /db.sqlite3
-_pycache_/
-/db.sqlite3
 __pycache__/
-**/__pycache__/**
-ClickToComplain/__pycache__/**
+/db.sqlite3
+db.sqlite3
