@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'UserManagement.apps.UsermanagementConfig',
     'Verified_User.apps.VerifiedUserConfig',
     'crispy_forms',
+    'vote',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -11,9 +11,24 @@
     <p class="card-text"> {{ complain.description }}</p>
     <p class="card-text"><small class="text-muted">{{ complain.type }}</small></p>
     <p class="card-text"><small class="text-muted">{{ complain.status }}</small></p>
-    </div>
-    </div>
 
+
+    </div>
+    </div>
+  <form method="POST">
+        {% csrf_token %}
+        <input type="radio" id="none" name = "vote" value="none">
+        <label for="none">None</label><br>
+
+        <input type="radio" id="upvote" name = "vote" value="upvote">
+        <label for="upvote">Upvote</label><br>
+
+        <input type="radio" id="downvote" name = "vote" value="downvote">
+        <label for="downvote">Downvote</label><br>
+
+        <button type="submit">Submit</button>
+    </form>
+        {{ vote }}
 
 
 

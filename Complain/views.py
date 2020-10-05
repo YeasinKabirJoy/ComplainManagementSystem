@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .ComplainForm import ComplainForm
 from .CommentForm import CommentForm
-from .VoteForm import VoteForm
 from .models import Complain
 
 from Verified_User.models import Verified_User
@@ -72,41 +71,6 @@ def commentForm(request):
     return render(request, 'Complain/CommentForm.html', context)
 
 
-@login_required
-def voteForm(request):
-    vote_form = VoteForm()
-    msg = ''
-
-    if request.method == 'POST':
-        vote_form = VoteForm(request.POST)
-        msg = 'Invalid input'
-
-        if vote_form.is_valid():
-            vote = vote_form.save(commit=False)
-
-            try:
-                vote.user = Verified_User.objects.get(user=request.user)
-                if vote.user.status == 'Verified':
-                    if vote.user.type=="Student":
-                        vote.save()
-                        msg = 'Insertion done!'
-                        vote_form = VoteForm()
-                    else:
-                        msg = "You are not allowed to vote!"
-                else:
-                    vote_form = VoteForm()
-                    msg = 'Sorry !! You are not verified yet!!'
-            except Exception:
-                 msg = "Verify your profile by giving necessary documents"
-
-    context = {
-        'vote_form': vote_form,
-        'msg': msg
-    }
-    return render(request, 'Complain/VoteForm.html', context)
-
-
-
 
 def allComplain(request):
 
@@ -120,21 +84,36 @@ def allComplain(request):
 
     return render(request, 'Complain/allComplain.html', context)
 
-def complain_details(request,complain_id):
+def complain_details(request, complain_id):
 
-    complain=get_object_or_404(Complain,id=complain_id)
+    complain=get_object_or_404(Complain, id=complain_id)
+
+    vote = request.POST.get("vote")
+
+    if complain.votes.exists(request.user.id):
+        pass
+    else:
+        if vote == "upvote":
+            complain.votes.up(request.user.id)
+
+        elif vote == "downvote":
+            complain.votes.down(request.user.id)
+        else:
+            pass
+
     context={
-        'complain':complain,
+        'complain': complain,
+        'vote': vote
 
     }
-    complain.save()
-    return render(request,'Complain/complainDetails.html',context)
+
+    return render(request, 'Complain/complainDetails.html', context)
 
 
 
 def homepage(request):
 
-    return render(request,'Complain/home.html')
+    return render(request, 'Complain/home.html')
 
 
 

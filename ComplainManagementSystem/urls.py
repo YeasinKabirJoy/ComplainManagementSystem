@@ -31,12 +31,10 @@ urlpatterns = [
     path('allComplain/<int:complain_id>', complain_view.complain_details, name='complainDetails'),
     path('faq/', infocontac_views.showFAQ, name='faq'),
     path('info/', infocontac_views.showInfo, name='info'),
-
     path('user_verification_form/', verified_user_views.user_verification_form, name='user_verification_form'),
     path('my_profile/',verified_user_views.show_profile, name='my_profile'),
     path('complainForm/', complain_view.complainForm, name='complainForm'),
     path('commentForm/', complain_view.commentForm, name='commentForm'),
-    path('voteForm/', complain_view.voteForm, name='voteForm'),
     path('tagForm/', tag_views.insertTag, name='tagForm'),
     path('infoForm/', infocontac_views.infoForm, name='infoForm'),
     path('faqForm/', infocontac_views.faqForm, name='faqForm'),

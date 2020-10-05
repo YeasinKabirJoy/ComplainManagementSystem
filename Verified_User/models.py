@@ -29,9 +29,9 @@ class Verified_User(models.Model):
                 Verified_Email.objects.get(email=self.email)
                 self.status = 'Not Verified'
             except Exception:
-                self.email = self.user.username + "@uapAdmin.com"
                 ve = Verified_Email(email=self.email)
                 ve.save()
+                self.email = self.user.username + "@uapAdmin.com"
 
         super(Verified_User, self).save(*args, **kwargs)
 

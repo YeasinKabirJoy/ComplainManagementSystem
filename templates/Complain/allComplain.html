@@ -10,6 +10,8 @@
     <p class="card-text"> {{ c.description }}</p>
     <p class="card-text"><small class="text-muted">{{ c.type }}</small></p>
     <p class="card-text"><small class="text-muted">{{ c.status }}</small></p>
+    <p class="card-text"><small class="text-muted">UpVote: {{ c.num_vote_up }}</small></p>
+    <p class="card-text"><small class="text-muted">DownVote:{{ c.num_vote_down }}</small></p>
      <div>
         <a href="{{c.id}}"><button type="button" class="btn btn-outline-info">Details</button></a>
      </div>
