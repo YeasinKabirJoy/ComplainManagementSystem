@@ -8,12 +8,12 @@ from vote.models import VoteModel
 
 class Comment(models.Model):
 
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
 
     user = models.ForeignKey(Verified_User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return str(self.complain.id)
+        return str(self.user)
 
 
 class Complain(VoteModel, models.Model):
@@ -28,7 +28,7 @@ class Complain(VoteModel, models.Model):
     time = models.TimeField(auto_now=True)
 
     user = models.ForeignKey(Verified_User, on_delete=models.CASCADE)
-    comment = models.ManyToManyField(Comment)
+    comment = models.ManyToManyField(Comment,blank=True)
 
 
     def __str__(self):

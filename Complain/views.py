@@ -100,11 +100,12 @@ def complain_details(request, complain_id):
             try:
                 comment.user = Verified_User.objects.get(user=request.user)
                 if comment.user.status == 'Verified':
-                    comment.save()
-                    complain.comment.add(comment)
-                    complain.save()
-                    msg = 'Insertion done!'
-                    comment_form = CommentForm()
+                    if comment.comment!="":
+                        comment.save()
+                        complain.comment.add(comment)
+                        complain.save()
+                        msg = 'Insertion done!'
+                        comment_form = CommentForm()
                 else:
                     comment_form = CommentForm()
                     msg = 'Sorry !! You are not verified yet!!'
