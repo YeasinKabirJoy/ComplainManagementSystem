@@ -5,31 +5,52 @@
 
 
     <div class="card mb-3">
-    <img src="{{ complain.image.url }}" class="card-img-top" alt="complain-img"  height="450px">
-    <div class="card-body">
-    <h5 class="card-title">{{ complain.user }}</h5>
-    <p class="card-text"> {{ complain.description }}</p>
-    <p class="card-text"><small class="text-muted">{{ complain.type }}</small></p>
-    <p class="card-text"><small class="text-muted">{{ complain.status }}</small></p>
+        <img src="{{ complain.image.url }}" class="card-img-top" alt="complain-img" height="450px">
+        <div class="card-body">
+            <h5 class="card-title">{{ complain.user }}</h5>
+            <p class="card-text"> {{ complain.description }}</p>
+            <p class="card-text"><small class="text-muted">{{ complain.type }}</small></p>
+            <p class="card-text"><small class="text-muted">{{ complain.status }}</small></p>
+{#            <p class="card-text"><small class="text-muted">#}
+{#                {% for t in complain.tag.all %}#}
+{#                    {{ t }}#}
+{#                {% endfor %}#}
+{#                #{{ complain.tag.all }}#}
+{#            </small></p>#}
 
 
+        </div>
     </div>
-    </div>
-  <form method="POST">
+    <form method="POST">
         {% csrf_token %}
-        <input type="radio" id="none" name = "vote" value="none">
+        <input type="radio" id="none" name="vote" value="none">
         <label for="none">None</label><br>
 
-        <input type="radio" id="upvote" name = "vote" value="upvote">
+        <input type="radio" id="upvote" name="vote" value="upvote">
         <label for="upvote">Upvote</label><br>
 
-        <input type="radio" id="downvote" name = "vote" value="downvote">
+        <input type="radio" id="downvote" name="vote" value="downvote">
         <label for="downvote">Downvote</label><br>
 
         <button type="submit">Submit</button>
     </form>
+    <br> <br>
+    <div class="container">
+        {% for c in complain.comment.all %}
+            User: {{ c.user }}<br>
+            Comment: {{ c.comment }} <br><br><br>
+        {% endfor %}
+    </div>
 
-
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <input type="submit">
+        </form>
+    </div>
+    {{ msg }}
+    <br>
 
 
 

@@ -85,8 +85,31 @@ def allComplain(request):
     return render(request, 'Complain/allComplain.html', context)
 
 def complain_details(request, complain_id):
+    complain = get_object_or_404(Complain, id=complain_id)
 
-    complain=get_object_or_404(Complain, id=complain_id)
+    comment_form = CommentForm()
+    msg = ''
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        msg = 'Invalid input'
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+
+            try:
+                comment.user = Verified_User.objects.get(user=request.user)
+                if comment.user.status == 'Verified':
+                    comment.save()
+                    complain.comment.add(comment)
+                    complain.save()
+                    msg = 'Insertion done!'
+                    comment_form = CommentForm()
+                else:
+                    comment_form = CommentForm()
+                    msg = 'Sorry !! You are not verified yet!!'
+            except Exception:
+                msg = "Verify your profile by giving necessary documents"
 
     vote = request.POST.get("vote")
 
@@ -101,9 +124,11 @@ def complain_details(request, complain_id):
         else:
             pass
 
-    context={
+    context = {
         'complain': complain,
-        'vote': vote
+        'vote': vote,
+        'comment_form': comment_form,
+        'msg': msg
 
     }
 
