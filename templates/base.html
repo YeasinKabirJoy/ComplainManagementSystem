@@ -12,39 +12,79 @@
 <body>
 
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark"style="background-color:#333">
-  <a class="navbar-brand" href="{% url 'homepage' %}">CLICK TO COMPLAIN</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Click2Complain</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
+    {% if user.is_authenticated %}
+        {% if verified_user %}
+            {% if student %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'my_profile' %}">Profile <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'complainForm' %}">Submit Complain <span class="sr-only">(current)</span></a>
+                </li>
+
+               <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'allComplain' %}">All Complain <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'faq' %}">FAQ <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'info' %}">Contact Us <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+
+            {% if admin %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'allComplain' %}">All Complain <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'faqForm' %}"> FAQ insert <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'info' %}">Info insert <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'tagForm' %}">Tag insert <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+        {%else %}
+             <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'user_verification_form' %}">Verify Yourself <span class="sr-only">(current)</span></a>
+             </li>
+        {% endif %}
+        <li class="nav-item active">
+            <a class="nav-link" href="{%  url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
+        </li>
+    {% else %}
+        <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'registration' %}"> Registratoion <span class="sr-only">(current)</span></a>
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'login' %}"> Login <span class="sr-only">(current)</span></a>
+             </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="{%  url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+    {% endif %}
+
+
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    </ul>
   </div>
 </nav>
 </header>
@@ -52,23 +92,23 @@
 
 <div class="container">
 
-{{ verified_user }}<br>
-<a href="{%  url 'homepage' %}">Home</a>
-{% if user.is_authenticated %}
-    <a href="{%  url 'logout' %}">Logout</a>
-    <a href="{%  url 'my_profile' %}">Profile</a>
-    <a href="{%  url 'complainForm' %}">Submit Complain</a>
-    <a href="{%  url 'user_verification_form' %}">Verify yourself</a>
-    <a href="{%  url 'allComplain' %}">View Complain</a>
-    <a href="{%  url 'faq' %}">FAQ</a>
-    <a href="{%  url 'info' %}">Contact</a>
-
-{% else %}
-
-    <a href="{%  url 'registration' %}">Registration</a>
-    <a href="{%  url 'login' %}">Login</a>
-{% endif %}
-<br>
+{#<br>#}
+{#<a href="{%  url 'homepage' %}">Home</a>#}
+{#{% if user.is_authenticated %}#}
+{#    <a href="{%  url 'logout' %}">Logout</a>#}
+{#    <a href="{%  url 'my_profile' %}">Profile</a>#}
+{#    <a href="{%  url 'complainForm' %}">Submit Complain</a>#}
+{#    <a href="{%  url 'user_verification_form' %}">Verify yourself</a>#}
+{#    <a href="{%  url 'allComplain' %}">View Complain</a>#}
+{#    <a href="{%  url 'faq' %}">FAQ</a>#}
+{#    <a href="{%  url 'info' %}">Contact</a>#}
+{##}
+{#{% else %}#}
+{##}
+{#    <a href="{%  url 'registration' %}">Registration</a>#}
+{#    <a href="{%  url 'login' %}">Login</a>#}
+{#{% endif %}#}
+{#<br>#}
 
 {% block content %}
 

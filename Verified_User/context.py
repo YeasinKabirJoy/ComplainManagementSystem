@@ -4,11 +4,23 @@ from .models import Verified_User
 
 
 def verifiedUser(request):
+    Student=False
+    Admin =False
     try:
         verified_user = get_object_or_404(Verified_User,user=request.user)
     except Exception:
-        verified_user=''
+        verified_user=False
+
+    if verified_user != False:
+        if verified_user.type =="Student":
+            if verified_user.status=="Verified":
+                Student=True
+        if verified_user.type =="Admin":
+            if verified_user.status == "Verified":
+                Admin =True
     context = {
-        'verified_user': verified_user
+        'verified_user': verified_user,
+        'student':Student,
+        'admin':Admin
     }
     return context
