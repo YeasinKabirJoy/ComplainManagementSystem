@@ -74,7 +74,7 @@ def faqForm(request):
 def showFAQ(request):
     faq=FAQ.objects.all()
     context={
-        'faq':faq
+        'faq':faq,
     }
 
     return render(request,'InfoNContact/FAQ.html',context)
