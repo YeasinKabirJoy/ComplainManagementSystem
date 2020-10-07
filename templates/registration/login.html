@@ -1,9 +1,97 @@
-{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
 
-{% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit">
-    </form>
-{% endblock content %}
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: rgb(70,52,78) !important;
+
+
+        }
+
+        .card {
+            margin: 0 35%;
+            margin-top: 200px;
+            width: 30%;
+            background: rgba(215, 136, 238,.8);
+        {#height: 500px;#} {#margin-top: auto;#} {#margin-bottom: auto;#} {#background: #33ccff;#} {#position: relative;#} {#display: flex;#} {#justify-content: center;#} {#flex-direction: column;#} {#padding: 10px;#} {#box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#border-radius: 5px;#}
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="d-flex justify-content-center mt-3 login_container">
+
+
+                    <button type="submit" class="btn btn-info">Sign In</button>
+
+
+                </div>
+            </form>
+        </div>
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links login">
+
+                Don't have an account?
+                <a href="{% url 'registration' %}" class="ml-2">Registration</a>
+            </div>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links login">
+
+                    Back to
+                    <a href="{% url 'homepage' %}" class="ml-2">Home Page</a><br><br>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

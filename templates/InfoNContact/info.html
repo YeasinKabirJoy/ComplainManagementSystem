@@ -1,5 +1,54 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-   
+
+
+    <div class="card-group">
+  <div class="card">
+    <img src="{% static 'image/uap.png' %}" class="contact_image uap_logo"height="200" width="200">
+    <div class="card-body">
+      <h5 class="card-title">University Information</h5>
+      <p class="card-text">
+          A,Green Road,<br>
+         Dhaka-1205,<br>
+         Bangladesh<br>
+         PABX:+8802-5874/A,<br>
+         Green Road,Dhaka-1205,<br>
+         Bangladesh<br>
+         PABX:+880258157091-4,6<br>
+         Fax:+8800258157-4,6<br></p>
+
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image/email.jpg' %}" class="contact_image uap_logo"height="200" width="200">
+    <div class="card-body">
+      <h5 class="card-title">Email Us</h5>
+      <p class="card-text">
+        <h3>Request for proposal</h3>
+        {% for i in info  %}
+            <h4>{{ i.email }}</h4>
+        {% endfor  %}
+       </p>
+
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image/call.png' %}" class="contact_image uap_logo"height="200" width="200">
+    <div class="card-body">
+      <h5 class="card-title">Contact Us</h5>
+      <p class="card-text">
+          {% for i in info  %}
+          <h4>{{ i.phone_no }}</h4>
+          {% endfor  %}
+
+      </p>
+
+    </div>
+  </div>
+</div>
+
+
+
 {% endblock content %}
