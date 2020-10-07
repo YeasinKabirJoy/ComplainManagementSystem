@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-     <h3>User Name: {{ profile.user }}</h3>
-     <h3>User Type: {{ profile.type }}</h3>
-     <h3>User Status:  {{ profile.status }}</h3>
-    <br><br>
+{#     <h3>User Name: {{ profile.user }}</h3>#}
+{#     <h3>User Type: {{ profile.type }}</h3>#}
+{#     <h3>User Status:  {{ profile.status }}</h3>#}
+{#    <br><br>  style="width:50%;  margin: 25% 30%;#}
+
+
+    <div class="container" style = "width: 70%; height: auto; margin: 19% 19%;">
+       <div class="card border-dark mb-3" style="max-width: 25rem;">
+          <div class="card-header">Profile</div>
+          <div class="card-body text-dark">
+              <ul class="list-group">
+                  <li class="list-group-item list-group-item-light"><b>User Name:  </b>{{ profile.user }}</li>
+                  <li class="list-group-item list-group-item-light"><b>User Type:  </b>{{ profile.type }}</li>
+                  <li class="list-group-item list-group-item-light"><b>User Status:  </b>{{ profile.status }}</li>
+              </ul>
+          </div>
+        </div>
+    </div>
 {% endblock content %}

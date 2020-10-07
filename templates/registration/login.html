@@ -17,18 +17,23 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: rgb(70,52,78) !important;
-
+            background: rgb(23,37,42) !important;
 
         }
 
+
         .card {
-            margin: 0 35%;
+            margin: 0 30%;
             margin-top: 200px;
-            width: 30%;
-            background: rgba(215, 136, 238,.8);
+            width: 40%;
+            height: auto;
+            background: rgba(51,204,255,.7);
         {#height: 500px;#} {#margin-top: auto;#} {#margin-bottom: auto;#} {#background: #33ccff;#} {#position: relative;#} {#display: flex;#} {#justify-content: center;#} {#flex-direction: column;#} {#padding: 10px;#} {#box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#} {#border-radius: 5px;#}
 
+        }
+        .login a{
+            text-decoration: none;
+            color: white;
         }
 
 
@@ -44,10 +49,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="d-flex justify-content-center mt-3 login_container">
-
-
-                    <button type="submit" class="btn btn-info">Sign In</button>
-
+                    <button type="submit" class="btn btn-success">Sign In</button>
 
                 </div>
             </form>
@@ -68,11 +70,7 @@
 
             </div>
         </div>
-
-
     </div>
-
-
 </div>
 
 
