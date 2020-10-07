@@ -64,6 +64,10 @@
 
             {% if admin %}
                 <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'my_profile' %}">Profile <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
                 <a class="nav-link" href="{%  url 'allComplain' %}">All Complain <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
@@ -74,6 +78,13 @@
                 </li>
                 <li class="nav-item active">
                 <a class="nav-link" href="{%  url 'tagForm' %}">Tag insert <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'faq' %}">FAQ <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                <a class="nav-link" href="{%  url 'info' %}">Contact Us <span class="sr-only">(current)</span></a>
                 </li>
             {% endif %}
         {%else %}
@@ -88,6 +99,7 @@
                 <a class="nav-link" href="{%  url 'info' %}">Contact Us <span class="sr-only">(current)</span></a>
             </li>
         {% endif %}
+
         <li class="nav-item active">
             <a class="nav-link" href="{%  url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
         </li>

@@ -13,11 +13,13 @@
 
         <div class="card-body">
             <h5 class="card-title">{{ complain.user }}</h5>
-            <p class="card-text" > {{ complain.description }}</p>
+            <p class="card-text" > {{ complain.date }}</p>
+            <p class="card-text" > {{ complain.time }}</p>
+            <b>Description:</b><p class="card-text" > {{ complain.description }}</p>
             <p class="card-text"><small  style="color: #2bb7e2">{{ complain.status }}</small></p>
 
             <p class="card-text">
-            Tags:
+            <b>Tags:</b>
                 {% for t in complain.tag.all %}
                     {{ t }}
                 {% endfor %}
@@ -40,12 +42,16 @@
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
     <br> <br>
+        <b>Comments:</b>
+    <br> <br>
     <div class="container">
         {% for c in complain.comment.all %}
             User: {{ c.user }}<br>
             Comment: {{ c.comment }} <br><br><br>
         {% endfor %}
     </div>
+
+    <br>
 
     <div class="container">
         <form method="POST">
