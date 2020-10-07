@@ -23,6 +23,8 @@ def complainForm(request):
                 if complain.user.status == 'Verified':
                     if complain.user.type=="Student":
                         complain.save()
+                        for t in request.POST.getlist('tag'):
+                            complain.tag.add(t)
                         msg = 'Insertion done!'
                         complain_form = ComplainForm()
                     else:
@@ -71,11 +73,12 @@ def commentForm(request):
     return render(request, 'Complain/CommentForm.html', context)
 
 
-
 def allComplain(request):
 
     complain = Complain.objects.all()
 
+    if request.method =="POST":
+        complain = Complain.objects.filter(tag__tag_name__icontains = request.POST['search'])
 
 
     context = {
@@ -83,6 +86,7 @@ def allComplain(request):
     }
 
     return render(request, 'Complain/allComplain.html', context)
+
 
 def complain_details(request, complain_id):
     complain = get_object_or_404(Complain, id=complain_id)

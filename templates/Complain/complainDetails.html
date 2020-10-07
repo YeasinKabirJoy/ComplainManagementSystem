@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 
     <div class="card mb-3">
-        <img src="{{ complain.image.url }}" class="card-img-top" alt="complain-img" height="450px">
+        {% if complain.image.url != null %}
+             <img src="{{ complain.image.url }}" class="card-img-top" alt="complain-img" height="450px">
+        {% else %}
+            <p class="card-text" >No Image</p>
+        {% endif%}
+
         <div class="card-body">
             <h5 class="card-title">{{ complain.user }}</h5>
-            <p class="card-text"> {{ complain.description }}</p>
-            <p class="card-text"><small class="text-muted">{{ complain.type }}</small></p>
-            <p class="card-text"><small class="text-muted">{{ complain.status }}</small></p>
-{#            <p class="card-text"><small class="text-muted">#}
-{#                {% for t in complain.tag.all %}#}
-{#                    {{ t }}#}
-{#                {% endfor %}#}
-{#                #{{ complain.tag.all }}#}
-{#            </small></p>#}
+            <p class="card-text" > {{ complain.description }}</p>
+            <p class="card-text"><small  style="color: #2bb7e2">{{ complain.status }}</small></p>
+
+            <p class="card-text">
+            Tags:
+                {% for t in complain.tag.all %}
+                    {{ t }}
+                {% endfor %}
+           </p>
 
 
         </div>
@@ -32,7 +37,7 @@
         <input type="radio" id="downvote" name="vote" value="downvote">
         <label for="downvote">Downvote</label><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
     <br> <br>
     <div class="container">
@@ -45,8 +50,8 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
-            {{ comment_form.as_p }}
-            <input type="submit">
+            {{ comment_form |crispy }}
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
     </div>
 
