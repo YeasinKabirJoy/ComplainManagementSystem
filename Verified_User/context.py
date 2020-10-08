@@ -6,6 +6,7 @@ from .models import Verified_User
 def verifiedUser(request):
     Student=False
     Admin =False
+    msg=""
     try:
         verified_user = get_object_or_404(Verified_User,user=request.user)
     except Exception:
