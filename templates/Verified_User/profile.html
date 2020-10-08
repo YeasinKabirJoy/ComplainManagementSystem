@@ -6,17 +6,17 @@
 {#     <h3>User Status:  {{ profile.status }}</h3>#}
 {#    <br><br>  style="width:50%;  margin: 25% 30%;#}
 
-
-    <div class="container" style = "width: 70%; height: auto; margin: 19% 19%;">
-       <div class="card border-dark mb-3" style="max-width: 25rem;">
-          <div class="card-header">Profile</div>
-          <div class="card-body text-dark">
-              <ul class="list-group">
-                  <li class="list-group-item list-group-item-light"><b>User Name:  </b>{{ profile.user }}</li>
-                  <li class="list-group-item list-group-item-light"><b>User Type:  </b>{{ profile.type }}</li>
-                  <li class="list-group-item list-group-item-light"><b>User Status:  </b>{{ profile.status }}</li>
-              </ul>
-          </div>
-        </div>
-    </div>
+    <div class="card text-center"style="margin:10% 0% 15% 0%">
+  <div class="card-header">
+   Profile of {{ profile.user }}
+  </div>
+  <div class="card-body" style="background-color: #e9ffe9">
+    <h5 class="card-title">Username: {{ profile.user }}</h5>
+    <h5 class="card-title">Type: {{ profile.type }}</h5>
+    <h5 class="card-title">Status: {{ profile.status }}</h5>
+  </div>
+  <div class="card-footer text-muted">
+   Click2Complain
+  </div>
+</div>
 {% endblock content %}

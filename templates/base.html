@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link rel="icon" href="{% static 'UserManagement/css/favicon-16x16.png' %}">
+    <link rel="stylesheet" href={%static 'UserManagement/css/registrationLogin.css'%}>
     <title>ClickToComplain</title>
 
     <style>
@@ -15,15 +16,25 @@
           border: 1px solid #555;
       }
 
-      footer{
-          padding: 1%;
-          background-color:#e9e9e9;
-          display:block;
-          text-align: center;
-          font-size: 100%;
-          margin-top: 10px;
-          border:1px solid #555555;
+
+      body{
+          background: #f5f5f5;
       }
+
+      .footer {
+       padding: 1%;
+       position: relative;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color: #e9e9e9;
+       font-size: 100%;
+       text-align: center;
+       margin-top: 10px;
+       border:1px solid #555555;
+    }
+
+
     </style>
 
 </head>
@@ -80,16 +91,21 @@
                 <a class="nav-link" href="{%  url 'user_verification_form' %}">Verify Yourself <span class="sr-only">(current)</span></a>
              </li>
         {% endif %}
-
-        <li class="nav-item active">
-            <a class="nav-link" href="{%  url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
-        </li>
-
         <li class="nav-item active">
         <a class="nav-link" href="{%  url 'faq' %}">FAQ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
         <a class="nav-link" href="{%  url 'info' %}">Contact Us <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="{%  url 'about' %}">About <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="{%  url 'password_change' %}">Change Password <span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item active">
+            <a class="nav-link" href="{%  url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
         </li>
 
 
@@ -144,8 +160,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<footer>
-    <p>Copyright &copy; Click2Complain. All rights reserved.</p>
-</footer>
+
+<div class="footer">
+  <p>Copyright &copy; Click2Complain. All rights reserved.</p>
+</div>
+
 </body>
 </html>
