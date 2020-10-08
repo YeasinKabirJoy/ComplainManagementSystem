@@ -86,3 +86,6 @@ def showInfo(request):
     }
 
     return render(request,'InfoNContact/info.html',context)
+
+def aboutUS(request):
+    return render(request,'InfoNContact/aboutUS.html')

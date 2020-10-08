@@ -38,7 +38,8 @@ urlpatterns = [
     path('tagForm/', tag_views.insertTag, name='tagForm'),
     path('infoForm/', infocontac_views.infoForm, name='infoForm'),
     path('faqForm/', infocontac_views.faqForm, name='faqForm'),
-    path('registration/', user_views.registration, name ='registration'),
+    path('registration/', user_views.registration, name='registration'),
+    path('about/', infocontac_views.aboutUS, name='about'),
     path('accounts/', include('django.contrib.auth.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
