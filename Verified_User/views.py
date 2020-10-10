@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Verified_User
 from .User_Verification_Form import User_Verification_Form
 from django.contrib.auth.decorators import login_required
+from Complain.models import Complain
 
 # Create your views here.
 
@@ -42,12 +43,19 @@ def user_verification_form(request):
 @login_required
 def show_profile(request):
     try:
+        userC = Verified_User.objects.get(user=request.user)
+        complain =Complain.objects.filter(user=userC)
+    except:
+        complain = ""
+
+    try:
         profile = Verified_User.objects.get(user=request.user)
     except Verified_User.DoesNotExist:
         profile = 'Please complete your profile'
 
     context = {
-        "profile": profile
+        "profile": profile,
+        "complain":complain
     }
 
     return render(request, 'Verified_User/profile.html', context)
