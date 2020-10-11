@@ -3,52 +3,65 @@
 
 {% block content %}
 
+{% load static %}
 
-    <div class="card-group">
-  <div class="card">
-    <img src="{% static 'image/uap.png' %}" class="contact_image uap_logo"height="200" width="200">
-    <div class="card-body">
-      <h5 class="card-title">University Information</h5>
-      <p class="card-text">
-          A,Green Road,<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'InfoNContact/infocss/infocss.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+
+
+<section class="section_contact">
+  <div class="row">
+    <div class="column column_uap">
+
+     <img src="{% static 'image/uap.png' %}"class="contact_image uap_logo">
+
+        <p><b>A,Green Road,<br>
          Dhaka-1205,<br>
          Bangladesh<br>
          PABX:+8802-5874/A,<br>
          Green Road,Dhaka-1205,<br>
          Bangladesh<br>
          PABX:+880258157091-4,6<br>
-         Fax:+8800258157-4,6<br></p>
-
+            Fax:+8800258157-4,6<br></b> </p>
     </div>
-  </div>
-  <div class="card">
-    <img src="{% static 'image/email.jpg' %}" class="contact_image uap_logo"height="200" width="200">
-    <div class="card-body">
-      <h5 class="card-title">Email Us</h5>
-      <p class="card-text">
+
+    <div class="column column_admin" >
+       <img src="{% static 'image/email.jpg' %}"class="contact_image">
         <h3>Request for proposal</h3>
+        <p><u>admin@gmail.com</u></p>
+        <h3>For more details</h3>
         {% for i in info  %}
-            <h4>{{ i.email }}</h4>
+            <h6>{{ i.email }}</h6>
         {% endfor  %}
-       </p>
+   </div>
+    <div class="column column_call_us" >
+        <img src="{% static 'image/call.png' %}"class="contact_image">
+        <h3>Contacts</h3>
 
-    </div>
-  </div>
-  <div class="card">
-    <img src="{% static 'image/call.png' %}" class="contact_image uap_logo"height="200" width="200">
-    <div class="card-body">
-      <h5 class="card-title">Contact Us</h5>
-      <p class="card-text">
-          {% for i in info  %}
-          <h4>{{ i.phone_no }}</h4>
+        {% for i in info  %}
+          <h6>{{ i.phone_no }}</h6>
           {% endfor  %}
-
-      </p>
-
     </div>
   </div>
-</div>
+  <div class="social_logo">
+      <a class="btn1" href='#'><i class="fab fa-facebook-f"></i></a>
+      <a class="btn1" href="#"><i class="fab fa-twitter"></i></a>
+      <a class="btn1" href="#"><i class="fab fa-google"></i></a>
+      <a class="btn1" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="btn1" href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</section>
 
 
+</body>
+</html>
 
 {% endblock content %}
