@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Student.apps.StudentConfig',
     'Complain.apps.ComplainConfig',
     'Tag.apps.TagConfig',
     'InfoNContact.apps.InfoncontactConfig',

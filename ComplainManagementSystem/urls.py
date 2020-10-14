@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from Student import views as student_view
 from Complain import views as complain_view
 from Tag import views as tag_views
 from InfoNContact import views as infocontac_views
