@@ -88,7 +88,7 @@ def allComplain(request):
 
         return render(request, 'Complain/allComplain.html', context)
     except Exception:
-        return redirect('login/')
+        return redirect('login')
 
 @login_required
 def complain_details(request, complain_id):
