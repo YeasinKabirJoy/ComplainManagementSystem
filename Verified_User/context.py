@@ -17,12 +17,12 @@ def verifiedUser(request):
             if verified_user.status=="Verified":
                 Student=True
             else:
-                msg="Wait for your verfication"
+                msg="Wait for your Verification"
         if verified_user.type == "Admin":
             if verified_user.status == "Verified":
                 Admin =True
             else:
-                msg="Wait for your Verification"
+                msg="Wait for your Verification!"
     context = {
         'verified_user': verified_user,
         'student':Student,

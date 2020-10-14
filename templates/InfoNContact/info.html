@@ -23,21 +23,19 @@
 
      <img src="{% static 'image/uap.png' %}"class="contact_image uap_logo">
 
-        <p><b>A,Green Road,<br>
+        <p>A,Green Road,<br>
          Dhaka-1205,<br>
          Bangladesh<br>
          PABX:+8802-5874/A,<br>
          Green Road,Dhaka-1205,<br>
          Bangladesh<br>
          PABX:+880258157091-4,6<br>
-            Fax:+8800258157-4,6<br></b> </p>
+            Fax:+8800258157-4,6<br> </p>
     </div>
 
     <div class="column column_admin" >
        <img src="{% static 'image/email.jpg' %}"class="contact_image">
         <h3>Request for proposal</h3>
-        <p><u>admin@gmail.com</u></p>
-        <h3>For more details</h3>
         {% for i in info  %}
             <h6>{{ i.email }}</h6>
         {% endfor  %}

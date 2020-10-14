@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .ComplainForm import ComplainForm
 from .CommentForm import CommentForm
 from .models import Complain
@@ -72,22 +72,25 @@ def commentForm(request):
     }
     return render(request, 'Complain/CommentForm.html', context)
 
-
+@login_required
 def allComplain(request):
-
-    complain = Complain.objects.all()
-
-    if request.method =="POST":
-        complain = Complain.objects.filter(tag__tag_name__icontains = request.POST['search'])
-
-
-    context = {
+    try:
+        user=Verified_User.objects.get(user=request.user)
+        if user.status=="Verified":
+            complain = Complain.objects.all()
+            if request.method =="POST":
+                complain = Complain.objects.filter(tag__tag_name__icontains = request.POST['search'])
+        else:
+            complain=""
+        context = {
         'complain':complain
-    }
+        }
 
-    return render(request, 'Complain/allComplain.html', context)
+        return render(request, 'Complain/allComplain.html', context)
+    except Exception:
+        return redirect('login/')
 
-
+@login_required
 def complain_details(request, complain_id):
     complain = get_object_or_404(Complain, id=complain_id)
 

@@ -1,60 +1,67 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'InfoNContact/aboutcss/about.css' %}">
+</head>
+<body>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Our Team Section</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'InfoNContact/aboutcss/about.css' %}">
-    </head>
-    <body>
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
 
-    <div class="wrapper">
-        <h1>Our Team</h1>
-        <div class="team">
-            <div class="team_member">
-                <div class="team_img">
-                    <img src="{% static 'image/admi.png' %}">
-                </div>
-                <h3>Sk. Yeasin Kabir Joy</h3>
-{#                <p class="role">UI developer</p>#}
-                <p>yeasin@gmail.com</p>
-            </div>
-            <div class="team_member">
-                <div class="team_img">
-
-                    <img src="{% static 'image/admi.png' %}">
-                </div>
-                <h3>Nuzhat Tabassum Progga</h3>
-{#                <p class="role">Tester</p>#}
-                <p>progga@gmail.com</p>
-                </div>
-            <div class="team_member">
-                <div class="team_img">
-                    <img src="{% static 'image/admi.png' %}">
-                </div>
-                <h3>Nafees Imtiaz Ahsan</h3>
-{#                <p class="role">Support Lead</p>#}
-                <p>nafees@gmail.com</p>
-                </div>
-                <div class="team_member">
-                    <div class="team_img">
-                        <img src="{% static 'image/admi.png' %}">
-                    </div>
-                    <h3>Yasir Iqbal Mredul</h3>
-{#                    <p class="role">UI developer</p>#}
-                    <p>yasir@gmail.com</p>
-                </div>
-            </div>
-        </div>
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'image/joy.png' %}" alt="joy" style="width:100%">
+      <div class="container">
+        <h4>Sk. Yeasin Kabir Joy</h4>
+        <p>yeasinjoy16@gmail.com</p>
+      </div>
     </div>
+  </div>
 
-    </body>
-    </html>
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'image/joy.png' %}" alt="joy" style="width:100%">
+      <div class="container">
+        <h5>Nuzhat Tabassum Progga</h5>
+        <p>yeasinjoy16@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="column">
+    <div class="card">
+      <img src="{% static 'image/joy.png' %}" alt="joy" style="width:100%">
+      <div class="container">
+        <h4>Md. Nafees Imtiaz Ahsan</h4>
+        <p>yeasinjoy16@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="column">
+    <div class="card">
+      <img src="{% static 'image/joy.png' %}" alt="joy" style="width:100%">
+      <div class="container">
+        <h4>Yasir Iqbal Mridul</h4>
+        <p>yeasinjoy16@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
 
 
 
