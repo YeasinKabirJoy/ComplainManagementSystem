@@ -22,7 +22,7 @@
     <div class="column column_uap">
 
      <img src="{% static 'image/uap.png' %}"class="contact_image uap_logo">
-
+        <h3>Address of UAP</h3>
         <p>A,Green Road,<br>
          Dhaka-1205,<br>
          Bangladesh<br>
@@ -37,7 +37,7 @@
        <img src="{% static 'image/email.jpg' %}"class="contact_image">
         <h3>Request for proposal</h3>
         {% for i in info  %}
-            <h6>{{ i.email }}</h6>
+            <p>{{ i.email }}</p>
         {% endfor  %}
    </div>
     <div class="column column_call_us" >
@@ -45,7 +45,7 @@
         <h3>Contacts</h3>
 
         {% for i in info  %}
-          <h6>{{ i.phone_no }}</h6>
+          <p>{{ i.phone_no }}</p>
           {% endfor  %}
     </div>
   </div>

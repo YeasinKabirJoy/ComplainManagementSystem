@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="about-section" style=" padding: 30px; text-align: center; background-color: #70c3cb; color: white;margin-bottom: 2%">
+      <h1>Profile</h1>
+    </div>
 
-{#     <h3>User Name: {{ profile.user }}</h3>#}
-{#     <h3>User Type: {{ profile.type }}</h3>#}
-{#     <h3>User Status:  {{ profile.status }}</h3>#}
-{#    <br><br>  style="width:50%;  margin: 25% 30%;#}
 
-    <div class="card text-center"style="margin:10% 0% 5% 0%">
+    <div class="card text-center"style="margin:6% 0% 5% 0%">
   <div class="card-header">
-   Profile of {{ profile.user }}
+      <h4>Profile of {{ profile.user }}</h4>
   </div>
   <div class="card-body" style="background-color: #e9ffe9">
     <h5 class="card-title">Username: {{ profile.user }}</h5>
@@ -20,14 +19,13 @@
   </div>
 </div>
 
-    <div class="alert alert-dark" role="alert" style="text-align: center" style="margin-bottom: 2%">
-    Complain History
-</div>
-
-
     {% if complain != "" %}
+
+        <div class="alert alert-dark" role="alert" style="text-align: center; background-color: #70c3cb" style="margin-bottom: 2%">
+             Complain History
+        </div>
        {% for c in complain %}
-            <div class="card mb-3">
+            <div class="card mb-3" style="border: 6px solid #100367">
             {% if c.image.url != null %}
                 <img src="{{ c.image.url }}" class="card-img-top" alt="complain-img"  height="400px">
             {% else %}
@@ -48,7 +46,6 @@
             </div>
 
        {% endfor %}
-
 
     {% endif%}
 

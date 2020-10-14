@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+    <div class="about-section" style=" padding: 30px; text-align: center; background-color: #70c3cb; color: white;margin-bottom: 2%">
+      <h1>Submit Your Complain.</h1>
+    </div>
     {{ msg }}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}

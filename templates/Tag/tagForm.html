@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+    <div class="about-section" style=" padding: 30px; text-align: center; background-color: #70c3cb; color: white;margin-bottom: 2%">
+      <h1>Insert Information</h1>
+    </div>
     {{ message }}
-   <form method="POST">
+   <form method="POST" style="margin-bottom: 33%">
    {% csrf_token %}
    {{ tag_form | crispy }}
    <button type="submit" class="btn btn-outline-primary">Submit</button>

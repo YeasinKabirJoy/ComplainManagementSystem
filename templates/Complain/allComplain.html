@@ -2,10 +2,13 @@
 {% load static %}
 
 {% block content %}
+<div class="about-section" style=" padding: 30px; text-align: center; background-color: #70c3cb; color: white;margin-bottom: 2%">
+      <h1>Complains </h1>
+</div>
 {% if complain != "" %}
 
     {% for c in complain %}
-        <div class="card mb-3">
+        <div class="card mb-3" style="border: 6px solid #100367">
         {% if c.image.url != null %}
             <img src="{{ c.image.url }}" class="card-img-top" alt="complain-img"  height="400px">
         {% else %}

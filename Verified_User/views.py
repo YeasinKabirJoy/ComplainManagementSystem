@@ -44,8 +44,12 @@ def user_verification_form(request):
 def show_profile(request):
     try:
         userC = Verified_User.objects.get(user=request.user)
-        complain =Complain.objects.filter(user=userC)
-    except:
+        if userC.type == "Student":
+            complain = Complain.objects.filter(user=userC)
+        else:
+            complain = ""
+
+    except Exception:
         complain = ""
 
     try:
@@ -55,7 +59,7 @@ def show_profile(request):
 
     context = {
         "profile": profile,
-        "complain":complain
+        "complain": complain
     }
 
     return render(request, 'Verified_User/profile.html', context)
